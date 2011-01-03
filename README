@@ -1,0 +1,11 @@
+RandomAlbum
+Version 0.1
+
+Description:
+This script randomly picks an album and then adds it to the current playlist.
+A new album is automatically added when the playlist has almost completed playing.
+Clearing the playlist also adds a new album.
+
+Author: 
+emailmat@nerdshack.com 
+http://www.last.fm/user/obsessive
