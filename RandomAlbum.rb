@@ -22,11 +22,11 @@ def addalbum()
   trackslist = " "
   for i in 0...tracksarr.length
     mountpoint = `dcop amarok collection query "select lastmountpoint from devices where id=#{devicearr[i]}"`
-    trackslist = trackslist + "\"#{mountpoint.chomp() + (tracksarr[i].reverse().chomp('.').reverse())}\" "
+    trackslist = trackslist + " \"#{mountpoint.chomp() + tracksarr[i].sub('.','')}\""
   end
 
   #add tracks to playlist
-  `dcop amarok playlist addMediaList [#{trackslist}]`
+  `dcop amarok playlist addMediaList [ #{trackslist} ]`
 end
 
 #trap( "SIGTERM" ) { cleanup() } #signal sent by amarok on exit
@@ -59,4 +59,4 @@ loop do
               addalbum()
             end
     end
-end 
+end
