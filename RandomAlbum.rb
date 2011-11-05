@@ -10,8 +10,8 @@ def addalbum()
     id = `dcop amarok collection query "select id from album order by rand() limit 1"`
 
     #get tracks
-    tracks = `dcop amarok collection query "select url from tags where album=#{id} order by discnumber"`
-    device = `dcop amarok collection query "select deviceid from tags where album=#{id} order by discnumber"`
+    tracks = `dcop amarok collection query "select url from tags where album=#{id} order by discnumber,track"`
+    device = `dcop amarok collection query "select deviceid from tags where album=#{id} order by discnumber,track"`
     tracksarr = tracks.split("\n");
     devicearr = device.split("\n");
     gotalbum = true if tracksarr.length > 2 #don't use it if theres only 1 or 2 tracks
